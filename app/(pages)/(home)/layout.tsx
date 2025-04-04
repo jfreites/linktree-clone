@@ -9,8 +9,10 @@ export default function HomeLayout({
   return (
     <SidebarProvider>
     <AdminSidebar />
-      <main>
+      <main className="w-full bg-[#F3F3F1]">
+        <div className="px-3">
         <SidebarTrigger />
+        </div>
         {children}
       </main>
     </SidebarProvider>
