@@ -1,11 +1,8 @@
 import { useState } from "react";
 import {
   AlertDialog,
-  // AlertDialogAction,
-  // AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
@@ -18,6 +15,7 @@ import { Progress } from "@/components/ui/progress";
 import { StepOne } from "../StepOne";
 import { StepTwo } from "../StepTwo";
 import { StepThree } from "../StepThree";
+import { StepFour } from "../StepFour";
 
 export function HandlerStep(props: HandlerStepProps) {
   const { onReload } = props
@@ -52,19 +50,11 @@ export function HandlerStep(props: HandlerStepProps) {
               {step === 1 && <StepOne />}
               {step === 2 && <StepTwo />}
               {step === 3 && <StepThree />}
-              {step === 4 && (
-                <p>
-                  Final step! You are almost done. Please review your information and click continue.
-                </p>
-              )}
+              {step === 4 && <StepFour />}
               {step === 5 && <p>Final step</p>}
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction> */}
-        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   )
