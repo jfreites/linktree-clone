@@ -1,13 +1,51 @@
-import { TreePalm } from "lucide-react";
+'use client'
 
+import { useEffect, useState } from "react"
+import { LinkProfile } from "@/components/home"
+import { useUser } from "@clerk/nextjs"
+import { TreePalm } from "lucide-react"
+import { User, Link } from "@prisma/client"
+import { LoaderProfile } from "@/components/shared"
 
 export default function Home() {
+  const { user } = useUser()
+  const [isFirstTime, setIsFirstTime] = useState(false)
+  const [reload, setReload] = useState(false)
+  const [infoUser, setInfoUser] = useState<(User & { links: Link[]}) | null>(null)
+
+  useEffect(() => {
+    const checkFirstTime = async () => {
+      const response = await fetch("/api/info-user")
+      const data = await response.json()
+      setInfoUser(data)
+      setIsFirstTime(data.firstLogin) // Set the user info
+    }
+    checkFirstTime()
+
+    if (reload) {
+      checkFirstTime()
+      setReload(false) // Reset reload after fetching
+    }
+  }, [user?.id, reload, user])
+
+  if (!user || !infoUser) {
+    return <LoaderProfile />
+  }
+
+  if (isFirstTime) {
+    return (
+      <div>
+        es la primera visita
+      </div>
+    )
+  }
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-[60%_auto] gap-4 px-4">
         <div>
           {/* Link Profile */}
-          <p>Link profile</p>
+          <LinkProfile />
 
           {/* Profile info */}
           <div>
