@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export function StepTwo() {
-  const { setInfoUser, infoUser } = useStepConfig()
+  const { setInfoUser, infoUser, nextStep } = useStepConfig()
 
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>(
     infoUser?.platforms?.map((platform) => platform.name) || []
@@ -26,11 +26,10 @@ export function StepTwo() {
   const handleContinue = () => {
     setInfoUser((prevInfoUser) => ({
       ...prevInfoUser,
-      platforms: data.filter(({ name }) => {
-        // Filter the platforms based on the selected names
-        selectedPlatforms.includes(name)
-      })
+      platforms: data.filter(({ name }) => selectedPlatforms.includes(name))
     }))
+
+    nextStep() // Proceed to the next step
   }
 
   return (

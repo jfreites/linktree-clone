@@ -17,11 +17,12 @@ import { ArrowLeft } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { StepOne } from "../StepOne";
 import { StepTwo } from "../StepTwo";
+import { StepThree } from "../StepThree";
 
 export function HandlerStep(props: HandlerStepProps) {
   const { onReload } = props
   const [openDialog, setOpenDialog] = useState(true)
-  const { totalSteps, setStep, step, nextStep } = useStepConfig()
+  const { totalSteps, step, prevStep } = useStepConfig()
 
   const progressValue = (step / totalSteps) * 100
 
@@ -37,7 +38,7 @@ export function HandlerStep(props: HandlerStepProps) {
         <AlertDialogHeader>
           <AlertDialogTitle className="mb-1">
             {step > 1 && step < 5 && (
-              <Button variant="outline" className="mr-2" onClick={() => {}}>
+              <Button variant="outline" className="mr-2" onClick={prevStep}>
                 Back <ArrowLeft />
               </Button>
             )}
@@ -50,7 +51,7 @@ export function HandlerStep(props: HandlerStepProps) {
             <div>
               {step === 1 && <StepOne />}
               {step === 2 && <StepTwo />}
-              {step === 3 && <p>Step three</p>}
+              {step === 3 && <StepThree />}
               {step === 4 && (
                 <p>
                   Final step! You are almost done. Please review your information and click continue.
