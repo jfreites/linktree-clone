@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {
   AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
+  // AlertDialogAction,
+  // AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { StepOne } from "../StepOne";
+import { StepTwo } from "../StepTwo";
 
 export function HandlerStep(props: HandlerStepProps) {
   const { onReload } = props
@@ -48,7 +49,7 @@ export function HandlerStep(props: HandlerStepProps) {
           <AlertDialogDescription asChild>
             <div>
               {step === 1 && <StepOne />}
-              {step === 2 && <p>Step two</p>}
+              {step === 2 && <StepTwo />}
               {step === 3 && <p>Step three</p>}
               {step === 4 && (
                 <p>
@@ -60,8 +61,8 @@ export function HandlerStep(props: HandlerStepProps) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          {/* <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction> */}
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
