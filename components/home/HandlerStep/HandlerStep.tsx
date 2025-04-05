@@ -16,6 +16,7 @@ import { StepOne } from "../StepOne";
 import { StepTwo } from "../StepTwo";
 import { StepThree } from "../StepThree";
 import { StepFour } from "../StepFour";
+import { Summary } from "../Summary";
 
 export function HandlerStep(props: HandlerStepProps) {
   const { onReload } = props
@@ -51,7 +52,7 @@ export function HandlerStep(props: HandlerStepProps) {
               {step === 2 && <StepTwo />}
               {step === 3 && <StepThree />}
               {step === 4 && <StepFour />}
-              {step === 5 && <p>Final step</p>}
+              {step === 5 && <Summary onReload={onCloseDialog} />}
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>

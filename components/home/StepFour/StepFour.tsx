@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { UploadButton } from "@/lib/uploadthing";
 import { Plus } from "lucide-react";
 import { useStepConfig } from "@/hooks/use-step-config";
+import { toast } from "sonner";
 
 export function StepFour() {
-    const { setInfoUser } = useStepConfig()
+    const { infoUser, setInfoUser, nextStep } = useStepConfig()
     const [name, setName] = useState<string>("");
     const [username, setUsername] = useState<string>("");
     const [photoUrl, setPhotoUrl] = useState("");
@@ -17,10 +18,47 @@ export function StepFour() {
 
     const handleSelectPhoto = (src: string) => {
         setSelectedPhoto(src)
-        setInfoUser((prev) => ({
-            ...prev,
-            avatarUrl: src
+        setInfoUser((prevInfoUser) => ({
+            ...prevInfoUser,
+            avatarUrl: src,
         }))
+    }
+
+    const handleContinue = async () => {
+        if (!name || !username) {
+            alert("Please fill in both name and username.")
+            return
+        }
+
+        // Set the infoUser state before continuing
+        setInfoUser((prevInfoUser) => ({
+            ...prevInfoUser,
+            name,
+            username
+        }))
+
+        try {
+            const response = await fetch('/api/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    username: username,
+                    avatarUrl: infoUser.avatarUrl,
+                    links: infoUser.platforms,
+                    userType: infoUser.userType,
+                })
+            })
+
+            if (response.status === 200) {
+                nextStep()
+            }
+        } catch (error) {
+            toast('There was an error saving your profile. Please try again.')
+            console.error("Error saving profile:", error);
+        }
     }
 
     return (
@@ -102,7 +140,7 @@ export function StepFour() {
             </div>
 
             <div className="mt-6 md:mt-16">
-                <Button className="w-full bg-purple-600" onClick={() => console.log('adadsa')}>
+                <Button className="w-full bg-purple-600" onClick={handleContinue}>
                     Continue
                 </Button>
             </div>
