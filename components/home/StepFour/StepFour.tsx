@@ -108,7 +108,7 @@ export function StepFour() {
                         className="rounded-md text-slate-800 bg-slate-200 h-full" 
                         endpoint="profileImage" 
                         onClientUploadComplete={(res) => {
-                            setPhotoUrl(res?.[0].url)
+                            setPhotoUrl(res?.[0].ufsUrl)
                             setShowUploadPhoto(false)
                         }}
                         onUploadError={(error) => console.log(error)}

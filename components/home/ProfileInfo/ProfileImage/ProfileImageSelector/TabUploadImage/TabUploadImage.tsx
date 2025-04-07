@@ -40,7 +40,6 @@ export function TabUploadImage(props: TabUploadImageProps) {
 
         <div className="my-4">
             <UploadButton className="rounded-md text-slate-800 bg-slate-200 h-full w-full p-4" endpoint="profileImage" onClientUploadComplete={(res) => {
-                console.log(res)
                 setPhoto(res?.[0].ufsUrl)
             }} onUploadError={(error) => console.log(error)}
             />
