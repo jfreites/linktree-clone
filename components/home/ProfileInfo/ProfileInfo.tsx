@@ -1,3 +1,4 @@
+import BlockInfo from "./BlockInfo/BlockInfo";
 import { ProfileImage } from "./ProfileImage";
 import { ProfileInfoProps } from "./ProfileInfo.types";
 
@@ -8,7 +9,8 @@ export function ProfileInfo(props: ProfileInfoProps) {
     <div className="mt-10 max-w-2xl mx-auto">
         <div className="flex flex-row pb-lg space-x-sm items-center justify-between">
             <ProfileImage />
-            Profile information component
+            
+            <BlockInfo  />
         </div>
     </div>
   )
