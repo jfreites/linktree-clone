@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ProfileImageSelectorProps } from './ProfileImageSelector.types'
 import { TabSelector } from './TabSelector'
+import { TabUploadImage } from './TabUploadImage'
 
 export function ProfileImageSelector(props: ProfileImageSelectorProps) {
   const { setShowDialog } = props
@@ -11,11 +12,7 @@ export function ProfileImageSelector(props: ProfileImageSelectorProps) {
     <div className='pt-6'>
       {!showTab && <TabSelector setShowTab={setShowTab} />}
 
-      {showTab === "upload" && (
-        <div>
-          <p>Upload new image</p>
-        </div>
-      )}
+      {showTab === "upload" && <TabUploadImage setShowDialog={setShowDialog} setShowTab={setShowTab} />}
 
       {showTab === "delete" && (
         <div>
