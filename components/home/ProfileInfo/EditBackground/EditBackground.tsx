@@ -14,8 +14,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    // DropdownMenuLabel,
-    // DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import Image from "next/image";
@@ -41,6 +39,7 @@ export function EditBackground(props: EditBackgroundProps) {
         reloadUser()
         setShowDialog(false)
         onReload(true)
+        setPhotoUrl("")
     } catch (error) {
       console.log(error)
     }
@@ -63,9 +62,6 @@ export function EditBackground(props: EditBackgroundProps) {
                     </div>
                 </DialogTrigger>
             </DropdownMenuItem>
-            {/* <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem> */}
         </DropdownMenuContent>
         </DropdownMenu>
         <DialogContent>

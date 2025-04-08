@@ -6,3 +6,4 @@ export * from './StepThree'
 export * from './StepFour'
 export * from "./Summary"
 export * from './ProfileInfo'
+export * from './ProfilePreview'
