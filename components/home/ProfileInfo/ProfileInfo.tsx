@@ -1,6 +1,7 @@
 import BlockInfo from "./BlockInfo/BlockInfo";
 import { ProfileImage } from "./ProfileImage";
 import { ProfileInfoProps } from "./ProfileInfo.types";
+import { EditBackground } from "./EditBackground";
 
 export function ProfileInfo(props: ProfileInfoProps) {
   const { onReload } = props
@@ -11,6 +12,8 @@ export function ProfileInfo(props: ProfileInfoProps) {
             <ProfileImage />
             
             <BlockInfo  />
+
+            <EditBackground onReload={onReload} />
         </div>
     </div>
   )
