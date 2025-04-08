@@ -29,3 +29,28 @@ export async function PATCH(
         })
     }
 }
+
+export async function DELETE(
+    req: Request,
+    { params }: { params: { id: string } }
+) {
+    try {
+        const { id } = await params
+
+        if (! id) {
+            return NextResponse.json({ error: "ID is required" }, { status: 422 })
+        }
+
+        const deleteLink = await db.link.delete({
+            where: { id }
+        })
+
+        return NextResponse.json(deleteLink, { status: 200 })
+    } catch (error) {
+        console.error("Error updating user:", error)
+        return NextResponse.json({
+            message: "Error updating user",
+            error: (error as Error).message || "Unknown error",
+        })
+    }
+}

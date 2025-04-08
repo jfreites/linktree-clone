@@ -43,7 +43,7 @@ export function EditLink(props: EditLinkProps) {
   })
  
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    await fetch(`/api/update-link/${link.id}`, {
+    await fetch(`/api/link/${link.id}`, {
         method: "PATCH",
         body: JSON.stringify({
             link: values.link,

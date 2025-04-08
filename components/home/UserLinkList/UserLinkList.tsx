@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { EditLink } from "./EditLink";
+import { DeleteLink } from "./DeleteLink";
 
 
 export function UserLinkList(props: UserLinkListProps) {
@@ -36,7 +37,7 @@ export function UserLinkList(props: UserLinkListProps) {
 
                     <EditLink link={link} onReload={onReload} />
 
-                    <p>Remove</p>
+                    <DeleteLink link={link} onReload={onReload} />
                 </div>
             </div>
         ))}
