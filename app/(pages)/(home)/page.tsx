@@ -7,6 +7,7 @@ import { TreePalm } from "lucide-react"
 import { User, Link } from "@prisma/client"
 import { LoaderProfile } from "@/components/shared"
 import { StepConfigUserProvider, UserProvider } from "@/contexts"
+import { UserLinkList } from "@/components/home/UserLinkList"
 
 export default function Home() {
   const { user } = useUser()
@@ -46,23 +47,24 @@ export default function Home() {
     <UserProvider>
       <div className="grid grid-cols-1 md:grid-cols-[60%_auto] gap-4 px-4">
         <div>
-          {/* Link Profile */}
           <LinkProfile />
 
-          {/* Profile info */}
           <ProfileInfo onReload={setReload} />
 
-          <div className="mt-20 flex flex-col items-center">
-            <div className="py-10 text-center justify-center flex flex-col items-center text-gray-400 font-semibold">
-              <TreePalm className="h-20 w-20" strokeWidth={1} />
-              <p>Show the world who you are</p>
-              <p>Add a link to get started</p>
-            </div>
+          {infoUser.links.length > 0 ? (
+            <UserLinkList links={infoUser.links} onReload={setReload} />
+          ) : (
+            <div className="mt-20 flex flex-col items-center">
+              <div className="py-10 text-center justify-center flex flex-col items-center text-gray-400 font-semibold">
+                <TreePalm className="h-20 w-20" strokeWidth={1} />
+                <p>Show the world who you are</p>
+                <p>Add a link to get started</p>
+              </div>
           </div>
+          )}
 
         </div>
 
-        {/* Profile preview */}
         <ProfilePreview />
       </div>
     </UserProvider>

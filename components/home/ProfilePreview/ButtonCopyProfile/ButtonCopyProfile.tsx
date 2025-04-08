@@ -19,12 +19,12 @@ export function ButtonCopyProfile() {
   
   return (
     <div className="pl-6 mt-6">
-        <div className="border py-2 rounded-full flex justify-center items-center" onClick={copyProfile}>
+        <div className="border py-2 rounded-full flex justify-between items-center px-4 cursor-pointer" onClick={copyProfile}>
             <span className="pl-4">
                 {window.location.origin}/<span className="font-semibold">{user?.username}</span>
             </span>
             <Button 
-                className="bg-[#d2e823] rounded-full py-1 px-2 text-black font-semibold hover:bg-[#d2e823]" 
+                className="bg-[#d2e823] rounded-full py-1 px-4 text-black font-semibold hover:bg-[#d8e823]" 
             >
                 {isCopyProfile ? 'Copied!' : 'Copy'}
             </Button>

@@ -1,7 +1,7 @@
 export const data = [
     {
         icon: "https://cggozb8yqe.ufs.sh/f/bpEOpEJjI8zKkTQYX0UbvxGfpCkRUEDoT2gJOwm7aYNy9tzq",
-        name: "LinkdIn", 
+        name: "LinkedIn", 
         url: ""
     },
     {

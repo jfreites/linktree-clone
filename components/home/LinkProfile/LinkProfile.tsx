@@ -19,7 +19,7 @@ export function LinkProfile() {
             <div className="flex flex-col justify-center text-center py-4 px-4 items-center gap-2 md:flex-row md:justify-between md:text-left">
                 <span className="text-sm">
                     <span>🔥 Your LinkTree Clone is live: </span>
-                    {window.location.origin}@jfreites
+                    {window.location.origin}/@jfreites
                 </span>
 
                 <Button 
