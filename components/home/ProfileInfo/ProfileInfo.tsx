@@ -2,6 +2,7 @@ import BlockInfo from "./BlockInfo/BlockInfo";
 import { ProfileImage } from "./ProfileImage";
 import { ProfileInfoProps } from "./ProfileInfo.types";
 import { EditBackground } from "./EditBackground";
+import { AddLinkForm } from "./AddLinkForm";
 
 export function ProfileInfo(props: ProfileInfoProps) {
   const { onReload } = props
@@ -15,6 +16,8 @@ export function ProfileInfo(props: ProfileInfoProps) {
 
             <EditBackground onReload={onReload} />
         </div>
+
+        <AddLinkForm onReload={onReload}  />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { data } from "./StepTwo.data";
+import { data } from "@/data/socialNetworkList";
 import { useStepConfig } from "@/hooks/use-step-config";
 import Image from "next/image";
 import { useState } from "react";
