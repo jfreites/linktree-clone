@@ -2,6 +2,7 @@
 
 import { NotUserFound } from "@/components/home/NotUserFound";
 import { LoaderProfile } from "@/components/shared";
+import { UserProfile } from "@/components/user/UserProfile";
 import { Link, User } from "@prisma/client";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -57,9 +58,5 @@ export default function UserPage() {
     return <NotUserFound />
   }
 
-  return (
-    <div className="max-w-6xl mx-auto items-center">
-        page {username}
-    </div>
-  )
+  return <UserProfile user={user} />
 }
